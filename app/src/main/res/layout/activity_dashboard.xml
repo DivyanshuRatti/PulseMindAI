@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7FBFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PulseMind AI"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#0A3D62"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Because your health matters"
+            android:textSize="16sp"
+            android:textColor="#3C6382"
+            android:layout_marginBottom="20dp" />
+
+        <Button
+            android:id="@+id/btnSymptom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AI Symptom Checker"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnClinics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nearby Clinics Map"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnSOS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Emergency SOS"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnMedication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medication Reminder"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/btnHealthDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Health Dashboard"
+            android:layout_marginBottom="12dp" />
+
+    </LinearLayout>
+</ScrollView>
