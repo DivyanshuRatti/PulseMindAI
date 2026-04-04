@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PulseMindAi">
         <activity
+            android:name=".NearbyClinicsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SymptomCheckerActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginPage"
             android:exported="false" />
         <activity

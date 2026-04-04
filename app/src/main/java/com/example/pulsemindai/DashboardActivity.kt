@@ -1,5 +1,6 @@
 package com.example.pulsemindai
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,11 +19,13 @@ class DashboardActivity : AppCompatActivity() {
         val btnHealthDashboard = findViewById<CardView>(R.id.btnHealthDashboard)
 
         btnSymptom.setOnClickListener {
-            Toast.makeText(this, "Symptom Checker clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SymptomCheckerActivity::class.java)
+            startActivity(intent)
         }
 
         btnClinics.setOnClickListener {
-            Toast.makeText(this, "Nearby Clinics clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, NearbyClinicsActivity::class.java)
+            startActivity(intent)
         }
 
         btnSOS.setOnClickListener {
