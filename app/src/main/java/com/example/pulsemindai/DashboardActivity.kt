@@ -17,6 +17,7 @@ class DashboardActivity : AppCompatActivity() {
         val btnSOS = findViewById<CardView>(R.id.btnSOS)
         val btnMedication = findViewById<CardView>(R.id.btnMedication)
         val btnHealthDashboard = findViewById<CardView>(R.id.btnHealthDashboard)
+        val cvProfile = findViewById<CardView>(R.id.cvProfile)
 
         btnSymptom.setOnClickListener {
             val intent = Intent(this, SymptomCheckerActivity::class.java)
@@ -29,15 +30,22 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         btnSOS.setOnClickListener {
-            Toast.makeText(this, "Emergency SOS clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SOSActivity::class.java)
+            startActivity(intent)
         }
 
         btnMedication.setOnClickListener {
-            Toast.makeText(this, "Medication Reminder clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MedicationActivity::class.java)
+            startActivity(intent)
         }
 
         btnHealthDashboard.setOnClickListener {
             Toast.makeText(this, "Health Dashboard clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        cvProfile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PulseMindAi">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MedicationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SOSActivity"
+            android:exported="false" />
+        <activity
             android:name=".NearbyClinicsActivity"
             android:exported="false" />
         <activity
