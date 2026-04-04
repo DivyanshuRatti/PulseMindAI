@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PulseMindAi">
         <activity
+            android:name=".LoginPage"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login" />
+        <activity
             android:name=".DashboardActivity"
             android:exported="false" />
         <activity

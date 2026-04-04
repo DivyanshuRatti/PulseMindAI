@@ -1,9 +1,9 @@
 package com.example.pulsemindai
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -11,11 +11,11 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        val btnSymptom = findViewById<Button>(R.id.btnSymptom)
-        val btnClinics = findViewById<Button>(R.id.btnClinics)
-        val btnSOS = findViewById<Button>(R.id.btnSOS)
-        val btnMedication = findViewById<Button>(R.id.btnMedication)
-        val btnHealthDashboard = findViewById<Button>(R.id.btnHealthDashboard)
+        val btnSymptom = findViewById<CardView>(R.id.btnSymptom)
+        val btnClinics = findViewById<CardView>(R.id.btnClinics)
+        val btnSOS = findViewById<CardView>(R.id.btnSOS)
+        val btnMedication = findViewById<CardView>(R.id.btnMedication)
+        val btnHealthDashboard = findViewById<CardView>(R.id.btnHealthDashboard)
 
         btnSymptom.setOnClickListener {
             Toast.makeText(this, "Symptom Checker clicked", Toast.LENGTH_SHORT).show()
