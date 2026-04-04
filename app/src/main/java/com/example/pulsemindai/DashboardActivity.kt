@@ -1,9 +1,11 @@
 package com.example.pulsemindai
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import java.util.Calendar
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -11,30 +13,35 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        val btnSymptom = findViewById<Button>(R.id.btnSymptom)
-        val btnClinics = findViewById<Button>(R.id.btnClinics)
-        val btnSOS = findViewById<Button>(R.id.btnSOS)
-        val btnMedication = findViewById<Button>(R.id.btnMedication)
-        val btnHealthDashboard = findViewById<Button>(R.id.btnHealthDashboard)
+        // Greeting based on time
+        val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+        val greeting = when {
+            hour < 12 -> "Good Morning, User"
+            hour < 17 -> "Good Afternoon, User"
+            else -> "Good Evening, User"
+        }
+        findViewById<TextView>(R.id.tvGreeting).text = greeting
 
-        btnSymptom.setOnClickListener {
-            Toast.makeText(this, "Symptom Checker clicked", Toast.LENGTH_SHORT).show()
+        // Feature cards
+        findViewById<LinearLayout>(R.id.cardSymptom).setOnClickListener {
+            startActivity(Intent(this, SymptomCheckerActivity::class.java))
+        }
+        findViewById<LinearLayout>(R.id.cardClinics).setOnClickListener {
+            startActivity(Intent(this, NearbyClinicsActivity::class.java))
+        }
+        findViewById<LinearLayout>(R.id.cardSOS).setOnClickListener {
+            startActivity(Intent(this, SOSActivity::class.java))
+        }
+        findViewById<LinearLayout>(R.id.cardMedication).setOnClickListener {
+            startActivity(Intent(this, MedicationActivity::class.java))
+        }
+        findViewById<LinearLayout>(R.id.cardHealthTracker).setOnClickListener {
+            startActivity(Intent(this, HealthTrackerActivity::class.java))
         }
 
-        btnClinics.setOnClickListener {
-            Toast.makeText(this, "Nearby Clinics clicked", Toast.LENGTH_SHORT).show()
-        }
-
-        btnSOS.setOnClickListener {
-            Toast.makeText(this, "Emergency SOS clicked", Toast.LENGTH_SHORT).show()
-        }
-
-        btnMedication.setOnClickListener {
-            Toast.makeText(this, "Medication Reminder clicked", Toast.LENGTH_SHORT).show()
-        }
-
-        btnHealthDashboard.setOnClickListener {
-            Toast.makeText(this, "Health Dashboard clicked", Toast.LENGTH_SHORT).show()
+        // Bottom nav
+        findViewById<TextView>(R.id.navSOS).setOnClickListener {
+            startActivity(Intent(this, SOSActivity::class.java))
         }
     }
 }
