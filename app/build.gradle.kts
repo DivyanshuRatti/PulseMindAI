@@ -25,6 +25,8 @@ android {
         localProps.load(file(rootProject.file("local.properties")).inputStream())
 
         buildConfigField("String", "GEMINI_API_KEY", "\"${localProps["GEMINI_API_KEY"]}\"")
+        buildConfigField("String", "GOOGLE_MAPS_KEY", "\"${localProps["GOOGLE_MAPS_KEY"]}\"")
+
         manifestPlaceholders["googleMapsKey"] = localProps["GOOGLE_MAPS_KEY"].toString()
     }
 

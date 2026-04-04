@@ -34,7 +34,7 @@ class NearbyClinicsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationCallback: LocationCallback
 
     private val LOCATION_PERMISSION_REQUEST = 1001
-    private val PLACES_API_KEY = BuildConfig.GEMINI_API_KEY
+    private val PLACES_API_KEY = BuildConfig.GOOGLE_MAPS_KEY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -39,9 +39,5 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, HealthTrackerActivity::class.java))
         }
 
-        // Bottom nav
-        findViewById<TextView>(R.id.navSOS).setOnClickListener {
-            startActivity(Intent(this, SOSActivity::class.java))
-        }
     }
 }
