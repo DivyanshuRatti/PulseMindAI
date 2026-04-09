@@ -169,23 +169,14 @@
                     android:textStyle="bold" />
             </RelativeLayout>
 
-            <!-- Contacts Container -->
-            <LinearLayout
-                android:id="@+id/contactsContainer"
+            <!-- Contacts RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvContacts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <include layout="@layout/item_sos_contact" />
-
-                <include
-                    android:id="@+id/contact2"
-                    layout="@layout/item_sos_contact" />
-
-                <include
-                    android:id="@+id/contact3"
-                    layout="@layout/item_sos_contact" />
-            </LinearLayout>
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_sos_contact" />
 
             <TextView
                 android:layout_width="match_parent"

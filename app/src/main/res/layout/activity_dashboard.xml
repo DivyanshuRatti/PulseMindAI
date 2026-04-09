@@ -129,6 +129,7 @@
 
         <!-- Reminders -->
         <LinearLayout
+            android:id="@+id/remindersCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -186,6 +187,7 @@
                 android:layout_marginTop="16dp"
                 android:columnCount="2">
 
+                <!-- AI Symptom Checker -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btnSymptom"
                     android:layout_width="0dp"
@@ -202,11 +204,19 @@
                         android:orientation="vertical"
                         android:padding="20dp">
 
-                        <View
+                        <androidx.cardview.widget.CardView
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@android:drawable/btn_default_small"
-                            android:backgroundTint="#4A90E2" />
+                            app:cardBackgroundColor="#4A90E2"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_brain"
+                                app:tint="@color/white" />
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -215,17 +225,20 @@
                             android:text="AI Symptom Checker"
                             android:textColor="#1A1A1A"
                             android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:gravity="center"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Analyze your symptoms"
                             android:textColor="#666666"
-                            android:textSize="10sp" />
+                            android:textSize="10sp"
+                            android:gravity="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- Nearby Clinics -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btnClinics"
                     android:layout_width="0dp"
@@ -242,11 +255,19 @@
                         android:orientation="vertical"
                         android:padding="20dp">
 
-                        <View
+                        <androidx.cardview.widget.CardView
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@android:drawable/btn_default_small"
-                            android:backgroundTint="#00BFA5" />
+                            app:cardBackgroundColor="#00BFA5"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_location"
+                                app:tint="@color/white" />
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -255,17 +276,20 @@
                             android:text="Nearby Clinics"
                             android:textColor="#1A1A1A"
                             android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:gravity="center"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Find healthcare nearby"
                             android:textColor="#666666"
-                            android:textSize="10sp" />
+                            android:textSize="10sp"
+                            android:gravity="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- Emergency SOS -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btnSOS"
                     android:layout_width="0dp"
@@ -282,11 +306,19 @@
                         android:orientation="vertical"
                         android:padding="20dp">
 
-                        <View
+                        <androidx.cardview.widget.CardView
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@android:drawable/btn_default_small"
-                            android:backgroundTint="#FF5252" />
+                            app:cardBackgroundColor="#FF5252"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_sos"
+                                app:tint="@color/white" />
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -295,17 +327,20 @@
                             android:text="Emergency SOS"
                             android:textColor="#1A1A1A"
                             android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:gravity="center"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Quick help"
                             android:textColor="#666666"
-                            android:textSize="10sp" />
+                            android:textSize="10sp"
+                            android:gravity="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- Medication -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btnMedication"
                     android:layout_width="0dp"
@@ -322,11 +357,19 @@
                         android:orientation="vertical"
                         android:padding="20dp">
 
-                        <View
+                        <androidx.cardview.widget.CardView
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@android:drawable/btn_default_small"
-                            android:backgroundTint="#7C4DFF" />
+                            app:cardBackgroundColor="#7C4DFF"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_pill"
+                                app:tint="@color/white" />
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -335,17 +378,20 @@
                             android:text="Medication"
                             android:textColor="#1A1A1A"
                             android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:gravity="center"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Don't miss a dose"
                             android:textColor="#666666"
-                            android:textSize="10sp" />
+                            android:textSize="10sp"
+                            android:gravity="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- Reports -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btnHealthDashboard"
                     android:layout_width="0dp"
@@ -362,11 +408,19 @@
                         android:orientation="vertical"
                         android:padding="20dp">
 
-                        <View
+                        <androidx.cardview.widget.CardView
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@android:drawable/btn_default_small"
-                            android:backgroundTint="#FFD600" />
+                            app:cardBackgroundColor="#FFD600"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_menu_report_image"
+                                app:tint="@color/white" />
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -375,14 +429,16 @@
                             android:text="Reports"
                             android:textColor="#1A1A1A"
                             android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:gravity="center"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Your health data"
                             android:textColor="#666666"
-                            android:textSize="10sp" />
+                            android:textSize="10sp"
+                            android:gravity="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

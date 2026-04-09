@@ -143,7 +143,7 @@
                                 android:background="@drawable/card_stats_bg"
                                 android:backgroundTint="#4A90E2"
                                 android:padding="8dp"
-                                android:src="@android:drawable/ic_menu_compass"
+                                android:src="@drawable/ic_pill"
                                 app:tint="@color/white" />
 
                             <TextView
@@ -177,7 +177,7 @@
                                 android:background="@drawable/card_stats_bg"
                                 android:backgroundTint="#00BFA5"
                                 android:padding="8dp"
-                                android:src="@android:drawable/ic_menu_today"
+                                android:src="@android:drawable/ic_menu_report_image"
                                 app:tint="@color/white" />
 
                             <TextView
@@ -211,7 +211,7 @@
                                 android:background="@drawable/card_stats_bg"
                                 android:backgroundTint="#FF5252"
                                 android:padding="8dp"
-                                android:src="@android:drawable/ic_menu_view"
+                                android:src="@android:drawable/ic_menu_mylocation"
                                 app:tint="@color/white" />
 
                             <TextView
@@ -432,15 +432,17 @@
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
-                android:background="@drawable/sos_button_bg"
+                android:background="@drawable/btn_red_rounded"
                 android:drawableStart="@android:drawable/ic_lock_power_off"
-                android:drawablePadding="8dp"
-                android:paddingStart="100dp"
+                android:drawablePadding="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
                 android:text="Logout"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:gravity="center"/>
 
         </LinearLayout>
     </ScrollView>
