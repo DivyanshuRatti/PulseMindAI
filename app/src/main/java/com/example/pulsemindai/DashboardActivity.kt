@@ -38,6 +38,17 @@ class DashboardActivity : AppCompatActivity() {
 
         // Dynamic reminders from SQLite
         val dbHelper = MedicationDBHelper(this)
+        // Show medication reminder
+        val medications = dbHelper.getAllMedications(userEmail)
+        val enabledMeds = medications.filter { it.isEnabled }
+        if (enabledMeds.isNotEmpty()) {
+            val medNames = enabledMeds.joinToString("\n") { "💊 ${it.name} at ${it.time}" }
+            android.app.AlertDialog.Builder(this)
+                .setTitle("Medication Reminder")
+                .setMessage("Don't forget to take your medicines today:\n\n$medNames")
+                .setPositiveButton("OK", null)
+                .show()
+        }
         findViewById<TextView>(R.id.tvReminders).text =
             dbHelper.getAllMedications(userEmail).size.toString()
 
