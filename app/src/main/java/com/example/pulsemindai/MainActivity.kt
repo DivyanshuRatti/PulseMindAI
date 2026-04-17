@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                     handler.postDelayed(this, 80)
                 } else {
                     handler.postDelayed({
-                        startActivity(Intent(this@MainActivity, DashboardActivity::class.java))
+                        startActivity(Intent(this@MainActivity, LoginPage::class.java))
                         finish()
                     }, 1000)
                 }

@@ -1,66 +1,449 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7FBFF">
 
+    <View
+        android:id="@+id/headerBackground"
+        android:layout_width="0dp"
+        android:layout_height="320dp"
+        android:background="@drawable/header_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvGreeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:text="Good Evening, User"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSubGreeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Stay healthy, stay happy"
+        android:textColor="#E0E0E0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tvGreeting"
+        app:layout_constraintTop_toBottomOf="@+id/tvGreeting" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvProfile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="#33FFFFFF"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvGreeting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvGreeting">
+
+        <TextView
+            android:id="@+id/tvProfileInitials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="U"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
     <LinearLayout
+        android:id="@+id/statsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubGreeting">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Steps -->
+        <LinearLayout
+            android:id="@+id/stepsCard"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="PulseMind AI"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#0A3D62"
-            android:layout_marginBottom="6dp" />
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/card_stats_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tvSteps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Steps"
+                android:textColor="#B3FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Mood -->
+        <LinearLayout
+            android:id="@+id/moodCard"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Because your health matters"
-            android:textSize="16sp"
-            android:textColor="#3C6382"
-            android:layout_marginBottom="20dp" />
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/card_stats_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <Button
-            android:id="@+id/btnSymptom"
-            android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvMood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😊"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mood"
+                android:textColor="#B3FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Reminders -->
+        <LinearLayout
+            android:id="@+id/remindersCard"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="AI Symptom Checker"
-            android:layout_marginBottom="12dp" />
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/card_stats_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <Button
-            android:id="@+id/btnClinics"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nearby Clinics Map"
-            android:layout_marginBottom="12dp" />
+            <TextView
+                android:id="@+id/tvReminders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnSOS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Emergency SOS"
-            android:layout_marginBottom="12dp" />
-
-        <Button
-            android:id="@+id/btnMedication"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Medication Reminder"
-            android:layout_marginBottom="12dp" />
-
-        <Button
-            android:id="@+id/btnHealthDashboard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Health Dashboard"
-            android:layout_marginBottom="12dp" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reminders"
+                android:textColor="#B3FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
     </LinearLayout>
-</ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:id="@+id/tvHealthFeatures"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="Health Features"
+                android:textColor="#1A1A1A"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:columnCount="2">
+
+                <!-- AI Symptom Checker -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnSymptom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:cardBackgroundColor="#4A90E2"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_brain"
+                                app:tint="@color/white" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="AI Symptom Checker"
+                            android:textColor="#1A1A1A"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Analyze your symptoms"
+                            android:textColor="#666666"
+                            android:textSize="10sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Nearby Clinics -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnClinics"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:cardBackgroundColor="#00BFA5"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_location"
+                                app:tint="@color/white" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="Nearby Clinics"
+                            android:textColor="#1A1A1A"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Find healthcare nearby"
+                            android:textColor="#666666"
+                            android:textSize="10sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Emergency SOS -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnSOS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:cardBackgroundColor="#FF5252"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_sos"
+                                app:tint="@color/white" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="Emergency SOS"
+                            android:textColor="#1A1A1A"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Quick help"
+                            android:textColor="#666666"
+                            android:textSize="10sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Medication -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnMedication"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:cardBackgroundColor="#7C4DFF"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_pill"
+                                app:tint="@color/white" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="Medication"
+                            android:textColor="#1A1A1A"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Don't miss a dose"
+                            android:textColor="#666666"
+                            android:textSize="10sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Reports -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnHealthDashboard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:cardBackgroundColor="#FFD600"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp">
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_menu_report_image"
+                                app:tint="@color/white" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="Reports"
+                            android:textColor="#1A1A1A"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your health data"
+                            android:textColor="#666666"
+                            android:textSize="10sp"
+                            android:gravity="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
