@@ -7,13 +7,13 @@ PulseMind AI is an Android health companion app built with Kotlin that helps use
 
 ##  Features
 
-### Authentication
+###  Authentication
 - User registration with name, email and password
 - Login with email and password validation
 - Per-user data isolation — each user sees only their own data
 - Secure logout clears all session data
 
-###  Dashboard
+### Dashboard
 - Dynamic greeting based on time of day (Good Morning / Afternoon / Evening)
 - Real-time steps counter — tap to update daily steps
 - Mood tracker — tap to cycle through mood emojis
@@ -75,6 +75,7 @@ PulseMind AI is an Android health companion app built with Kotlin that helps use
 | Location | FusedLocationProviderClient |
 | Database | SQLite (via SQLiteOpenHelper) |
 | Storage | SharedPreferences |
+| Networking | HttpURLConnection + Kotlin Coroutines |
 | UI | ConstraintLayout, CardView, Material Design |
 
 ---
@@ -114,7 +115,7 @@ app/src/main/res/layout/
 ##  Getting Started
 
 ### Prerequisites
-- Android Studio 
+- Android Studio Hedgehog or later
 - Android SDK 36
 - Groq API key (free at console.groq.com)
 - Google Maps API key (Google Cloud Console)
@@ -157,12 +158,78 @@ MAPS_API_KEY=your_google_maps_api_key_here
 3. Copy key starting with `gsk_...`
 4. Add to `local.properties`: `GROQ_API_KEY=gsk_...`
 
-### Google Maps API
-1. Go to [console.cloud.google.com](https://console.cloud.google.com)
-2. Create project → Enable Maps SDK for Android + Places API
-3. Go to Credentials → Create API Key
-4. Restrict key to Android apps with package `com.example.pulsemindai`
-5. Add to `local.properties`: `MAPS_API_KEY=AIza...`
+### Google Maps API — Step by Step Integration
+
+**Step 1 — Create Google Cloud Account**
+- Go to [console.cloud.google.com](https://console.cloud.google.com)
+- Set up billing with credit card (free $300 trial credit available)
+- Select **Individual** profile type
+
+**Step 2 — Enable the APIs**
+- Search **"Maps SDK for Android"** → click Enable
+- Search **"Places API"** → click Enable
+
+**Step 3 — Create API Key**
+- Go to **APIs & Services → Credentials**
+- Click **Create Credentials → API Key**
+- Key is generated starting with `AIza...`
+
+**Step 4 — Restrict the API Key**
+- Select restriction type: **Android apps**
+- Add package name: `com.example.pulsemindai`
+- Add SHA-1 fingerprint from Android Studio:
+```bash
+./gradlew signingReport
+```
+- Use the **debug variant SHA-1**
+- Click **Restrict Key**
+
+**Step 5 — Add key to local.properties**
+```
+MAPS_API_KEY=AIza_your_key_here
+```
+
+**Step 6 — Configure build.gradle.kts**
+```kotlin
+import java.util.Properties
+val localProps = Properties()
+localProps.load(rootProject.file("local.properties").inputStream())
+
+// Inside defaultConfig {}
+buildConfigField("String", "MAPS_API_KEY", "\"${localProps["MAPS_API_KEY"]}\"")
+
+// Inside buildFeatures {}
+buildConfig = true
+```
+
+**Step 7 — Add to AndroidManifest.xml**
+```xml
+<meta-data
+    android:name="com.google.android.geo.API_KEY"
+    android:value="YOUR_ACTUAL_KEY_HERE"/>
+```
+
+**Step 8 — Add dependencies to build.gradle.kts**
+```kotlin
+implementation("com.google.android.gms:play-services-maps:19.0.0")
+implementation("com.google.android.gms:play-services-location:21.3.0")
+```
+
+**Step 9 — Update activity_nearby_clinics.xml**
+```xml
+<fragment
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"/>
+```
+
+**Step 10 — Implement NearbyClinicsActivity.kt**
+- Implemented `OnMapReadyCallback`
+- Used `FusedLocationProviderClient` for real GPS coordinates
+- Called Google Places Nearby Search API to find hospitals within 5km
+- Added map markers for each hospital
+- Built clinic cards with name, address, rating, open/closed status and directions button
 
 ---
 
@@ -172,7 +239,7 @@ MAPS_API_KEY=your_google_maps_api_key_here
 |---|---|
 | Divyanshu Ratti | UI/UX / Integration |
 | Nikita Gupta | Backend Logic |
-|Racchpal Sidhu |  Database Integration | 
+| Racchpal Sidhu | Database Connection | 
 
 **Course:** INFO 3245 — Mobile Programming
 **Institution:** Kwantlen Polytechnic University
@@ -194,5 +261,4 @@ MAPS_API_KEY=your_google_maps_api_key_here
 - Multi-language support
 
 ---
-
 
